@@ -704,9 +704,9 @@ namespace AntiDupl.NET
 
         private CorePathWithSubFolder[] GetPath(CoreDll.PathType pathType)
         {
-            CorePathWithSubFolder[] pathWSF = new CorePathWithSubFolder[0];
+            CorePathWithSubFolder[] pathWSF = Array.Empty<CorePathWithSubFolder>();
             IntPtr[] size = new IntPtr[1];
-            string[] path = new string[0];
+            string[] path = Array.Empty<string>();
             if (m_dll.adPathGetW(m_handle, pathType, new IntPtr(1), Marshal.UnsafeAddrOfPinnedArrayElement(size, 0)) ==
                             CoreDll.Error.OutputBufferIsTooSmall)
             {

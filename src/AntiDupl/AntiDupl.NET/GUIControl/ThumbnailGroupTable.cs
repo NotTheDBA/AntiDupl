@@ -87,7 +87,7 @@ namespace AntiDupl.NET
         {
             UpdateThumbnailsStop();
             m_thumbnailStorage.Clear();
-            m_groups = new CoreGroup[0];
+            m_groups = Array.Empty<CoreGroup>();
             m_maxGroupIndex = -1;
             Controls.Clear();
         }
@@ -100,7 +100,7 @@ namespace AntiDupl.NET
             uint groupSize = m_core.GetGroupSize();
             if (groupSize == 0)
             {
-                m_groups = new CoreGroup[0];
+                m_groups = Array.Empty<CoreGroup>();
                 m_maxGroupIndex = -1;
                 return;
             }

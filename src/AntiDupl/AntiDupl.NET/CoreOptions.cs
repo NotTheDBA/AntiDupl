@@ -51,9 +51,9 @@ namespace AntiDupl.NET
             advancedOptions = new CoreAdvancedOptions();
 
             searchPath = new CorePathWithSubFolder[1];
-            ignorePath = new CorePathWithSubFolder[0];
-            validPath = new CorePathWithSubFolder[0];
-            deletePath = new CorePathWithSubFolder[0];
+            ignorePath = Array.Empty<CorePathWithSubFolder>();
+            validPath = Array.Empty<CorePathWithSubFolder>();
+            deletePath = Array.Empty<CorePathWithSubFolder>();
         }
 
         public CoreOptions(CoreLib core, bool onePath)
@@ -192,7 +192,7 @@ namespace AntiDupl.NET
 
         public static CorePathWithSubFolder[] PathClone(CorePathWithSubFolder[] path)
         {
-            CorePathWithSubFolder[] clone = new CorePathWithSubFolder[0];
+            CorePathWithSubFolder[] clone = Array.Empty<CorePathWithSubFolder>();
             PathCopy(path, ref clone);
             return clone;
         }

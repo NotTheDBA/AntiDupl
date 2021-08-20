@@ -137,7 +137,7 @@ namespace AntiDupl.NET
             m_options = options;
             m_coreOptions = coreOptions;
             m_mainSplitContainer = mainSplitContainer;
-            m_results = new CoreResult[0];
+            m_results = Array.Empty<CoreResult>();
             m_resultRowSetter = new ResultRowSetter(m_options, this);
             InitializeComponents();
             if(m_options.resultsOptions.viewMode == ResultsOptions.ViewMode.VerticalPairTable)
@@ -370,7 +370,7 @@ namespace AntiDupl.NET
 
         public void ClearResults()
         {
-            m_results = new CoreResult[0];
+            m_results = Array.Empty<CoreResult>();
             Rows.Clear();
             RowCount = 1;
             m_currentRowIndex = 0;
@@ -381,7 +381,7 @@ namespace AntiDupl.NET
             uint resultSize = m_core.GetResultSize();
             if (resultSize == 0)
             {
-                m_results = new CoreResult[0];
+                m_results = Array.Empty<CoreResult>();
                 return;
             }
             m_results = m_core.GetResult(0, resultSize);
