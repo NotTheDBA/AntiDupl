@@ -173,7 +173,7 @@ namespace AntiDupl.NET
 
         public static string[] PathClone(string[] path)
         {
-            string[] clone = new string[0];
+            string[] clone = Array.Empty<string>();
             PathCopy(path, ref clone);
             return clone;
         }

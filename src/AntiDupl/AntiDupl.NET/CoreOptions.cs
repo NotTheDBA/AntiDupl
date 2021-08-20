@@ -126,7 +126,7 @@ namespace AntiDupl.NET
             if (onePath)
             {
                 CorePathWithSubFolder[] tmpSearch = new CorePathWithSubFolder[1];
-                CorePathWithSubFolder[] tmpOther = new CorePathWithSubFolder[0];
+                CorePathWithSubFolder[] tmpOther = Array.Empty<CorePathWithSubFolder>();
                 if (searchPath.Length > 0 && Directory.Exists(searchPath[0].path))
                     tmpSearch[0] = searchPath[0];
                 else
@@ -185,7 +185,7 @@ namespace AntiDupl.NET
 
         public static string[] PathClone(string[] path)
         {
-            string[] clone = new string[0];
+            string[] clone = Array.Empty<string>();
             PathCopy(path, ref clone);
             return clone;
         }

@@ -45,7 +45,7 @@ namespace AntiDupl.NET
 
         //-----------API enumerations------------------------------------------
         
-        public enum Error : int
+        public enum Result : int
         {
             Ok = 0,
             Unknown = 1,
@@ -480,7 +480,7 @@ namespace AntiDupl.NET
         //-------------------API functions:------------------------------------
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adVersionGet_fn(VersionType versionType, IntPtr pVersion, IntPtr pVersionSize);
+        public delegate Result adVersionGet_fn(VersionType versionType, IntPtr pVersion, IntPtr pVersionSize);
         [DynamicModuleApi]
         public adVersionGet_fn adVersionGet = null;
 
@@ -490,157 +490,157 @@ namespace AntiDupl.NET
         public adCreate_fn adCreateW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adRelease_fn(IntPtr handle);
+        public delegate Result adRelease_fn(IntPtr handle);
         [DynamicModuleApi]
         public adRelease_fn adRelease = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adStop_fn(IntPtr handle);
+        public delegate Result adStop_fn(IntPtr handle);
         [DynamicModuleApi]
         public adStop_fn adStop = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adSearch_fn(IntPtr handle);
+        public delegate Result adSearch_fn(IntPtr handle);
         [DynamicModuleApi]
         public adSearch_fn adSearch = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adLoadW_fn(IntPtr handle, FileType fileType, string fileName, int check);
+        public delegate Result adLoadW_fn(IntPtr handle, FileType fileType, string fileName, int check);
         [DynamicModuleApi]
         public adLoadW_fn adLoadW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adSaveW_fn(IntPtr handle, FileType fileType, string fileName);
+        public delegate Result adSaveW_fn(IntPtr handle, FileType fileType, string fileName);
         [DynamicModuleApi]
         public adSaveW_fn adSaveW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adClear_fn(IntPtr handle, FileType fileType);
+        public delegate Result adClear_fn(IntPtr handle, FileType fileType);
         [DynamicModuleApi]
         public adClear_fn adClear = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adOptionsGet_fn(IntPtr handle, OptionsType optionsType, IntPtr pOptions);
+        public delegate Result adOptionsGet_fn(IntPtr handle, OptionsType optionsType, IntPtr pOptions);
         [DynamicModuleApi]
         public adOptionsGet_fn adOptionsGet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adOptionsSet_fn(IntPtr handle, OptionsType optionsType, IntPtr pOptions);
+        public delegate Result adOptionsSet_fn(IntPtr handle, OptionsType optionsType, IntPtr pOptions);
         [DynamicModuleApi]
         public adOptionsSet_fn adOptionsSet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adPathWithSubFolderSetW_fn(IntPtr handle, PathType pathType, IntPtr pPaths, IntPtr pathSize);
+        public delegate Result adPathWithSubFolderSetW_fn(IntPtr handle, PathType pathType, IntPtr pPaths, IntPtr pathSize);
         [DynamicModuleApi]
         public adPathWithSubFolderSetW_fn adPathWithSubFolderSetW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adPathGetW_fn(IntPtr handle, PathType pathType, IntPtr pPath, IntPtr pPathSize);
+        public delegate Result adPathGetW_fn(IntPtr handle, PathType pathType, IntPtr pPath, IntPtr pPathSize);
         [DynamicModuleApi]
         public adPathGetW_fn adPathGetW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adPathSetW_fn(IntPtr handle, PathType pathType, IntPtr pPath, IntPtr pathSize);
+        public delegate Result adPathSetW_fn(IntPtr handle, PathType pathType, IntPtr pPath, IntPtr pathSize);
         [DynamicModuleApi]
         public adPathSetW_fn adPathSetW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adStatisticGet_fn(IntPtr handle, IntPtr pStatistic);
+        public delegate Result adStatisticGet_fn(IntPtr handle, IntPtr pStatistic);
         [DynamicModuleApi]
         public adStatisticGet_fn adStatisticGet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adStatusGetW_fn(IntPtr handle, ThreadType threadType, IntPtr threadId, IntPtr pStatusW);
+        public delegate Result adStatusGetW_fn(IntPtr handle, ThreadType threadType, IntPtr threadId, IntPtr pStatusW);
         [DynamicModuleApi]
         public adStatusGetW_fn adStatusGetW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adResultSort_fn(IntPtr handle, SortType sortType, int increasing);
+        public delegate Result adResultSort_fn(IntPtr handle, SortType sortType, int increasing);
         [DynamicModuleApi]
         public adResultSort_fn adResultSort = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adResultApply_fn(IntPtr handle, GlobalActionType globalActionType);
+        public delegate Result adResultApply_fn(IntPtr handle, GlobalActionType globalActionType);
         [DynamicModuleApi]
         public adResultApply_fn adResultApply = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adResultApplyTo_fn(IntPtr handle, LocalActionType localActionType, TargetType targetType);
+        public delegate Result adResultApplyTo_fn(IntPtr handle, LocalActionType localActionType, TargetType targetType);
         [DynamicModuleApi]
         public adResultApplyTo_fn adResultApplyTo = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adCanApply_fn(IntPtr handle, ActionEnableType actionEnableType, IntPtr pEnable);
+        public delegate Result adCanApply_fn(IntPtr handle, ActionEnableType actionEnableType, IntPtr pEnable);
         [DynamicModuleApi]
         public adCanApply_fn adCanApply = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adRenameCurrentW_fn(IntPtr handle, RenameCurrentType renameCurrentType, string newFileName);
+        public delegate Result adRenameCurrentW_fn(IntPtr handle, RenameCurrentType renameCurrentType, string newFileName);
         [DynamicModuleApi]
         public adRenameCurrentW_fn adRenameCurrentW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adMoveCurrentGroupW_fn(IntPtr handle, string directory);
+        public delegate Result adMoveCurrentGroupW_fn(IntPtr handle, string directory);
         [DynamicModuleApi]
         public adMoveCurrentGroupW_fn adMoveCurrentGroupW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adRenameCurrentGroupAsW_fn(IntPtr handle, string fileName);
+        public delegate Result adRenameCurrentGroupAsW_fn(IntPtr handle, string fileName);
         [DynamicModuleApi]
         public adRenameCurrentGroupAsW_fn adRenameCurrentGroupAsW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adResultGetW_fn(IntPtr handle, IntPtr pStartFrom, IntPtr pResult, IntPtr pResultSize);
+        public delegate Result adResultGetW_fn(IntPtr handle, IntPtr pStartFrom, IntPtr pResult, IntPtr pResultSize);
         [DynamicModuleApi]
         public adResultGetW_fn adResultGetW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adSelectionSet_fn(IntPtr handle, IntPtr pStartFrom, UIntPtr size, int value);
+        public delegate Result adSelectionSet_fn(IntPtr handle, IntPtr pStartFrom, UIntPtr size, int value);
         [DynamicModuleApi]
         public adSelectionSet_fn adSelectionSet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adSelectionGet_fn(IntPtr handle, IntPtr pStartFrom, IntPtr pSelection, IntPtr pSelectionSize);
+        public delegate Result adSelectionGet_fn(IntPtr handle, IntPtr pStartFrom, IntPtr pSelection, IntPtr pSelectionSize);
         [DynamicModuleApi]
         public adSelectionGet_fn adSelectionGet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adCurrentSet_fn(IntPtr handle, IntPtr index);
+        public delegate Result adCurrentSet_fn(IntPtr handle, IntPtr index);
         [DynamicModuleApi]
         public adCurrentSet_fn adCurrentSet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adCurrentGet_fn(IntPtr handle, IntPtr pIndex);
+        public delegate Result adCurrentGet_fn(IntPtr handle, IntPtr pIndex);
         [DynamicModuleApi]
         public adCurrentGet_fn adCurrentGet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adGroupGet_fn(IntPtr handle, IntPtr pStartFrom, IntPtr pGroup, IntPtr pGroupSize);
+        public delegate Result adGroupGet_fn(IntPtr handle, IntPtr pStartFrom, IntPtr pGroup, IntPtr pGroupSize);
         [DynamicModuleApi]
         public adGroupGet_fn adGroupGet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adImageInfoGetW_fn(IntPtr handle, IntPtr groupId, IntPtr pStartFrom, IntPtr pImageInfo, IntPtr pImageInfoSize);
+        public delegate Result adImageInfoGetW_fn(IntPtr handle, IntPtr groupId, IntPtr pStartFrom, IntPtr pImageInfo, IntPtr pImageInfoSize);
         [DynamicModuleApi]
         public adImageInfoGetW_fn adImageInfoGetW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adImageInfoSelectionSet_fn(IntPtr handle, IntPtr groupId, IntPtr index, SelectionType selectionType);
+        public delegate Result adImageInfoSelectionSet_fn(IntPtr handle, IntPtr groupId, IntPtr index, SelectionType selectionType);
         [DynamicModuleApi]
         public adImageInfoSelectionSet_fn adImageInfoSelectionSet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adImageInfoSelectionGet_fn(IntPtr handle, IntPtr groupId, IntPtr pStartFrom, IntPtr pSelection, IntPtr pSelectionSize);
+        public delegate Result adImageInfoSelectionGet_fn(IntPtr handle, IntPtr groupId, IntPtr pStartFrom, IntPtr pSelection, IntPtr pSelectionSize);
         [DynamicModuleApi]
         public adImageInfoSelectionGet_fn adImageInfoSelectionGet = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adImageInfoRenameW_fn(IntPtr handle, IntPtr groupId, IntPtr index, string newFileName);
+        public delegate Result adImageInfoRenameW_fn(IntPtr handle, IntPtr groupId, IntPtr index, string newFileName);
         [DynamicModuleApi]
         public adImageInfoRenameW_fn adImageInfoRenameW = null;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        public delegate Error adLoadBitmapW_fn(IntPtr handle, string fileName, IntPtr pBitmap);
+        public delegate Result adLoadBitmapW_fn(IntPtr handle, string fileName, IntPtr pBitmap);
         [DynamicModuleApi]
         public adLoadBitmapW_fn adLoadBitmapW = null;
     }
